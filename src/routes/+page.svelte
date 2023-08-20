@@ -13,6 +13,8 @@
     let date_premier_jour_sans_emploi;
 
     $: date_premier_jour_sans_emploi = add(endOfMonth($data.dateDernierJourEmploi), {days: 1});
+
+    $: $data.indemniteDepartNet = EURO($data.indemniteDepartNetInput);
     // let nombre_de_mois_de_salaire_en_indeminte_depart = 7;
     // Pour l'imposition, voir https://www.service-public.fr/particuliers/vosdroits/F408
 

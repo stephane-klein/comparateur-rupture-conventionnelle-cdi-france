@@ -5,7 +5,7 @@
     import DateInput from "$lib/DateInput.svelte";
 
     import { endOfMonth, add, format, isBefore, set } from 'date-fns';
-    import { fr } from 'date-fns/locale'
+    import fr from 'date-fns/locale/fr/index.js';
     import { range } from 'radash';
 
     // Toutes les variables sont volontairement écrit en français

@@ -9,3 +9,12 @@ $ pnpm run dev
 ```
 
 Aller sur http://localhost:5173/
+
+Déploiement sur Vercel:
+
+```sh
+$ pnpm run build
+$ ./node_modules/.bin/vercel deploy --prod
+```
+
+Aller sur https://comparateur-rupture-conventionnelle-cdi.sklein.xyz/

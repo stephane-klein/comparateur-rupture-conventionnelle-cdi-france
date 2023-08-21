@@ -12,5 +12,6 @@ export const data = writable({
     votreSalaireBrutATIlVariéAuCoursDes24DerniersMois: "non",
     salaireBrutParMoisEnEuros: EURO(2000),
     salaireBrutParMoisEnEurosInput: 2000,
-    salairesBrutParMoisEnEuros: new Array(24)
+    salairesBrutParMoisEnEuros: new Array(24),
+    tauxImpôtSurLeRevenuEnPourcentInput: 0
 });

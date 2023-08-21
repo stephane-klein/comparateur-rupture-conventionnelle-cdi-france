@@ -7,7 +7,8 @@
         date_dernier_jour_emploi: format($data.dateDernierJourEmploi, 'yyyy-MM-d'),
         dernier_salaire_net_par_mois_en_euros: $data.dernierSalaireNetParMoisEnEuros.value,
         indemnite_depart_net: $data.indemniteDepartNet.value,
-        votre_salaire_brut_a_t_il_varié_au_cours_des_24_derniers_mois: $data.votreSalaireBrutATIlVariéAuCoursDes24DerniersMois
+        votre_salaire_brut_a_t_il_varié_au_cours_des_24_derniers_mois: $data.votreSalaireBrutATIlVariéAuCoursDes24DerniersMois,
+        taux_impot_sur_le_revenu_en_pourcent: $data.tauxImpôtSurLeRevenuEnPourcentInput
     };
 
     if ($data.votreSalaireBrutATIlVariéAuCoursDes24DerniersMois == "oui") {
@@ -38,6 +39,10 @@
                 } else {
                     $data.salaireBrutParMoisEnEurosInput = exportData.salaire_brut_par_mois_en_euros;
                 }
+            }
+
+            if (tmp?.taux_impot_sur_le_revenu_en_pourcent) {
+                $data.tauxImpôtSurLeRevenuEnPourcentInput = tmp.taux_impot_sur_le_revenu_en_pourcent;
             }
         } catch (error) {
             console.log(error);

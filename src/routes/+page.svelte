@@ -2,6 +2,7 @@
     import { data } from "$lib/store.js";
     import { EURO, EUROWithCents } from "$lib/utils.js";
     import EuroInput from "$lib/EuroInput.svelte";
+    import PourcentInput from "$lib/PourcentInput.svelte";
     import DateInput from "$lib/DateInput.svelte";
 
     import { endOfMonth, add, format, isBefore, set } from 'date-fns';
@@ -93,11 +94,15 @@
             result = {
                 date: add(date_premier_jour_sans_emploi, {months: mois}),
 
-                indémnité_chomage: montant_indemnite_chomage_pour_un_mois_precis(mois).multiply(1-0.141),
+                indémnité_chomage: montant_indemnite_chomage_pour_un_mois_precis(mois).multiply(
+                    1 - ($data.tauxImpôtSurLeRevenuEnPourcentInput / 100)
+                ),
                 cumul_indemnité_chomage: null,
                 équivalent_salaire_lissé: null,
 
-                salaire_du_cdi_quitte: $data.dernierSalaireNetParMoisEnEuros.multiply(1-0.188),
+                salaire_du_cdi_quitte: $data.dernierSalaireNetParMoisEnEuros.multiply(
+                    1 - ($data.tauxImpôtSurLeRevenuEnPourcentInput / 100)
+                ),
                 cumul_salaire_du_cdi_quitté: null,
                 différence_chomage_cdi: null
             }
@@ -270,6 +275,17 @@
                         </div>
                     </div>
                 {/if}
+                <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+                    <label
+                        for="taux_impôt_sur_le_revenu_en_pourcent"
+                        class="block text-sm leading-6 text-gray-900 sm:pt-1.5 font-semibold"
+                    >Taux d'impôt sur le revenu à appliquer sur les salaires ou indemnités :</label>
+                    <PourcentInput
+                        id="taux_impôt_sur_le_revenu_en_pourcent"
+                        name="taux_impôt_sur_le_revenu_en_pourcent"
+                        bind:value={$data.tauxImpôtSurLeRevenuEnPourcentInput}
+                    />
+                </div>
             </div>
         </div>
     </div>

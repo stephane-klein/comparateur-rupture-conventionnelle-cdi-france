@@ -308,7 +308,7 @@
             class="px-4 py-0.5"
         >Revenues au chomage (a)</th>
         <th
-            colspan="3"
+            colspan="2"
             class="px-4 py-0.5"
         >Revenues du CDI quitté (b)</th>
         <th></th>
@@ -321,7 +321,7 @@
             class="p-4 border-r border-r-1 border-r-gray-500"
             >Équivalent salaire lissé</th>
         <th class="p-4">Salaire net par mois</th>
-        <th class="p-4">Cumul</th>
+        <th class="p-4 border-r border-r-1 border-r-gray-500">Cumul</th>
         <th class="p-4">Différence</th>
     </tr>
     {#each écheancier_par_mois as mois, i }
@@ -348,7 +348,7 @@
                 class:border-t={i > 0}
             >{mois.salaire_du_cdi_quitte.format()}</td>
             <td
-                class="text-right font-mono border-gray-200 px-4 py-0.5 whitespace-nowrap"
+                class="text-right font-mono px-4 py-0.5 whitespace-nowrap border-r border-r-1 border-r-gray-500"
                 class:border-t={i > 0}
                 class:bg-green-200={mois.différence_chomage_cdi < 0}
             >{mois.cumul_salaire_du_cdi_quitté.format()}</td>

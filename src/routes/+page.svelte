@@ -306,11 +306,11 @@
         <th
             colspan="3"
             class="px-4 py-0.5"
-        >Revenues au chomage (a)</th>
+        >Revenues au chomage, après impôts (a)</th>
         <th
             colspan="2"
             class="px-4 py-0.5"
-        >Revenues du CDI quitté (b)</th>
+        >Revenues du CDI quitté, après impôts (b)</th>
         <th></th>
     </tr>
     <tr>

@@ -148,8 +148,13 @@
         vocabulaire">vous avez rechargé tous vos droits chômage</u>, plus concrètement, cela signifie que vous êtes en CDI depuis au moins 24 mois.</p>
 
     <p>Pour faire la simulation, veuillez remplir les informations suivantes :<br />
-        <small>(ces informations ne sont pas envoyées sur
-            le serveur, ces données restent uniquement dans votre navigateur internet)</small></p>
+        <small>(
+            Ces informations ne sont pas envoyées sur
+            le serveur, ces données restent uniquement dans votre navigateur internet.<br />
+
+            Si vous partagez la page avec les paramètres dans l'URL, ces paramètres seront visibles dans les
+            logs du serveur, si vous souhaitez garder secret ces informations, vous pouvez partager avec vos
+            amis la version YAML des données, cela vous permet de garder toutes ces informations secrètes.)</small></p>
 </div>
 <form>
     <div class="space-y-12 sm:space-y-16">
@@ -286,7 +291,8 @@
                         bind:value={$data.tauxImpôtSurLeRevenuEnPourcentInput}
                     />
                     <p>Attention, l'algorithme de calcul du salaire net après impôt sur le revenu contient des
-                        approximations qui seront corrigées par <a href="https://github.com/stephane-klein/comparateur-rupture-conventionnelle-cdi-france/issues/1">#1</a></p>
+                        approximations qui seront corrigées par <a
+                            href="https://github.com/stephane-klein/comparateur-rupture-conventionnelle-cdi-france/issues/1">#1</a>.
                 </div>
             </div>
         </div>

@@ -340,7 +340,7 @@
             >Équivalent salaire lissé</th>
         <th class="p-4">Salaire net par mois</th>
         <th class="p-4 border-r border-r-1 border-r-gray-500">Cumul</th>
-        <th class="p-4">Différence</th>
+        <th class="p-4" title="Différence de revenu de la situation au chômage - les revenus du CDI">Différence</th>
     </tr>
     {#each écheancier_par_mois as mois, i }
         <tr>

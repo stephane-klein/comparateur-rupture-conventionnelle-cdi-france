@@ -285,6 +285,8 @@
                         name="taux_impôt_sur_le_revenu_en_pourcent"
                         bind:value={$data.tauxImpôtSurLeRevenuEnPourcentInput}
                     />
+                    <p>Attention, l'algorithme de calcul du salaire net après impôt sur le revenu contient des
+                        approximations qui seront corrigées par <a href="https://github.com/stephane-klein/comparateur-rupture-conventionnelle-cdi-france/issues/1">#1</a></p>
                 </div>
             </div>
         </div>

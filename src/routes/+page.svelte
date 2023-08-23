@@ -330,16 +330,16 @@
         <th
             colspan="3"
             class="px-4 py-0.5"
-        >Revenues au chomage, après impôts (a)</th>
+        >Revenus au chômage, après impôts (a)</th>
         <th
             colspan="2"
             class="px-4 py-0.5"
-        >Revenues du CDI quitté, après impôts (b)</th>
+        >Revenus du CDI quitté, après impôts (b)</th>
         <th></th>
     </tr>
     <tr>
         <th class="p-4 border-r border-r-1 border-r-gray-500">Mois</th>
-        <th class="p-4">Indeminté par mois</th>
+        <th class="p-4">Indemnité par mois</th>
         <th class="p-4">Cumul</th>
         <th
             class="p-4 border-r border-r-1 border-r-gray-500"

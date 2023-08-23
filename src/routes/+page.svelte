@@ -482,7 +482,7 @@
         touché sur la période {format(écheancier_par_mois[0].date, 'MMMM yyyy', { locale: fr})} à
         {format(écheancier_par_mois[5].date, 'MMMM yyyy', { locale: fr})} l'équivalent d'un salaire de
         {écheancier_par_mois[5].équivalent_salaire_lissé.format()}.</p>
-    <p><strong>2</strong>: différence entre revenu chômage - revenue C.D.I. Les montants négatifs correspondent à la
+    <p><strong>2</strong>: différence entre revenu chômage - revenu C.D.I. Les montants négatifs correspondent à la
         perte de revenu en situation de chômage.</p>
 </div>
 

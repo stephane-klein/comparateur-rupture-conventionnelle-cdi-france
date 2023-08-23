@@ -54,7 +54,9 @@
 </script>
 
 <div class="mx-auto w-full max-w-7xl m-4">
-    <p class="text-right text-xs">Date de dernière publication : 2023-08-23</p>
+    <p class="text-right text-xs"><a
+        href="https://github.com/stephane-klein/comparateur-rupture-conventionnelle-cdi-france/commits/main">Date de
+        dernière publication : 2023-08-23</a></p>
     <div class="flex flex-row">
         <div class="grow flex flex-row space-x-4 font-semibold text-gray-600 my-4">
             <a

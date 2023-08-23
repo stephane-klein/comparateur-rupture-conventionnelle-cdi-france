@@ -5,7 +5,7 @@
     import PourcentInput from "$lib/PourcentInput.svelte";
     import DateInput from "$lib/DateInput.svelte";
 
-    import { endOfMonth, add, format, isBefore, set } from 'date-fns';
+    import { endOfMonth, add, format, isBefore, set, parseISO } from 'date-fns';
     import fr from 'date-fns/locale/fr/index.js';
     import { range } from 'radash';
 
@@ -134,6 +134,61 @@
 
         return 0;
     }
+
+    function chargerLeProfilDeJanieDoe() {
+        $data.dateDernierJourEmploi = parseISO("2023-10-30");
+        $data.dernierSalaireNetParMoisEnEurosInput = 2200;
+        $data.indemniteDepartNetInput = 1500;
+        $data.votreSalaireBrutATIlVariéAuCoursDes24DerniersMois = 'non';
+        $data.salairesBrutParMoisEnEuros = [];
+        $data.salaireBrutParMoisEnEurosInput = 2821;
+        $data.tauxImpôtSurLeRevenuEnPourcentInput = 6;
+    }
+
+    function chargerLeProfilDeJohnDoe() {
+        $data.dateDernierJourEmploi = parseISO("2023-09-30");
+        $data.dernierSalaireNetParMoisEnEurosInput = 3400;
+        $data.indemniteDepartNetInput = 8000;
+        $data.votreSalaireBrutATIlVariéAuCoursDes24DerniersMois = 'oui';
+        $data.salairesBrutParMoisEnEuros = [
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          3846,
+          4359,
+          4359,
+          4359,
+          4359,
+          4359,
+          4359,
+          4359
+        ];
+        $data.salaireBrutParMoisEnEurosInput = null;
+        $data.tauxImpôtSurLeRevenuEnPourcentInput = 9;
+    }
+
+    function chargerLeProfilDeJonnieDoe() {
+        $data.dateDernierJourEmploi = parseISO("2023-08-30");
+        $data.dernierSalaireNetParMoisEnEurosInput = 7000;
+        $data.indemniteDepartNetInput = 53000;
+        $data.votreSalaireBrutATIlVariéAuCoursDes24DerniersMois = 'non';
+        $data.salairesBrutParMoisEnEuros = [];
+        $data.salaireBrutParMoisEnEurosInput = 9333;
+        $data.tauxImpôtSurLeRevenuEnPourcentInput = 16;
+    }
 </script>
 
 <div class="prose prose-slate max-w-none">
@@ -176,6 +231,21 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="prose prose-slate max-w-none">
+    <p>Pour tester facilement le simulateur, cliquez sur ces boutons pour charger les données de profils fictifs :
+        <button
+            on:click={chargerLeProfilDeJanieDoe}
+            class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        >Janie Doe</button>
+        <button
+            on:click={chargerLeProfilDeJohnDoe}
+            class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">John Doe</button>
+        <button
+            on:click={chargerLeProfilDeJonnieDoe}
+            class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Jonnie Doe</button>
+    </p>
 </div>
 
 <form>

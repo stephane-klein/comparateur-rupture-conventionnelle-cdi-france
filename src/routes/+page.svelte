@@ -147,6 +147,9 @@
     <p>Attention, ce formulaire est valide seulement si <u title="Je pense que je n'utilise pas ici le bon
         vocabulaire">vous avez rechargé tous vos droits chômage</u>, plus concrètement, cela signifie que vous êtes en CDI depuis au moins 24 mois.</p>
 
+    <p>Ce simulateur prend en compte les évolutions règlementaires de l'assurance chômage jusqu'à <a href="https://www.unedic.org/espace-presse/actualites/publication-de-la-circulaire-2023-08-relative-la-reglementation-dassurance">la
+        circulaire 2023-08</a>.</p>
+
     <p>Pour faire la simulation, veuillez remplir les informations suivantes :<br />
         <small>(
             Ces informations ne sont pas envoyées sur

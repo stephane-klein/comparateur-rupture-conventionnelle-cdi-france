@@ -181,7 +181,7 @@
             <div class="my-10 space-y-8 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
                 <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
                     <label for="date_dernier_jour_emploi" class="block text-sm leading-6 text-gray-900
-                        sm:pt-1.5 font-semibold">Date de signature de la rupture conventionnelle :</label>
+                        sm:pt-1.5 font-semibold">Date de fin du contrat de travail :</label>
                     <div class="mt-2 sm:col-span-2 sm:mt-0">
                         <DateInput
                             id="date_dernier_jour_emploi"
@@ -196,7 +196,7 @@
                     <label
                         for="indemnite_depart_net"
                         class="block text-sm leading-6 text-gray-900 sm:pt-1.5 font-semibold"
-                    >Montant d'indemnités supralégales liées à la rupture du contrat de travail :</label>
+                    >Montant d'indemnités légales + supralégales liées à la rupture du contrat de travail :</label>
                     <EuroInput
                         id="indemnite_depart_net"
                         name="indemnite_depart_net"
@@ -207,7 +207,7 @@
                     <label
                         for="dernier_salaire_net_par_mois_en_euros"
                         class="block text-sm leading-6 text-gray-900 sm:pt-1.5 font-semibold"
-                    >Votre dernier salaire net par mois :</label>
+                    >Votre dernier salaire net par mois (le dernier mois complet) :</label>
                     <EuroInput
                         id="dernier_salaire_net_par_mois_en_euros"
                         name="dernier_salaire_net_par_mois_en_euros"

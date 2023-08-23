@@ -365,7 +365,7 @@
         <th class="p-4">Cumul</th>
         <th
             class="p-4 border-r border-r-1 border-r-gray-500"
-            >Équivalent salaire lissé</th>
+        >Équivalent salaire lissé <sup>*</sup></th>
         <th class="p-4">Salaire net par mois</th>
         <th class="p-4 border-r border-r-1 border-r-gray-500">Cumul</th>
         <th class="p-4" title="Différence de revenu de la situation au chômage - les revenus du CDI">Différence</th>
@@ -405,6 +405,15 @@
         </tr>
     {/each}
 </table>
+<div class="prose prose-slate max-w-none my-8">
+    <p>Explication concernant la signification du salaire lissé : par exemple, vous décidez de reprendre un emploi au
+        mois de {format(écheancier_par_mois[5].date, 'MMMM yyyy', { locale: fr})}, alors le montant indiqué dans la
+        cellule ({écheancier_par_mois[5].équivalent_salaire_lissé.format()}) signifie que vous aurez
+        touché sur la période {format(écheancier_par_mois[0].date, 'MMMM yyyy', { locale: fr})} à
+        {format(écheancier_par_mois[5].date, 'MMMM yyyy', { locale: fr})} l'équivalent d'un salaire de
+        {écheancier_par_mois[5].équivalent_salaire_lissé.format()}.</p>
+</div>
+
 <div class="prose prose-slate max-w-none mt-24 border-t border-gray-300 pt-16">
     <h2>Ressources</h2>
 

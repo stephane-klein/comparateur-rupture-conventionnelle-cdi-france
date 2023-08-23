@@ -484,7 +484,20 @@
         {écheancier_par_mois[5].équivalent_salaire_lissé.format()}.</p>
 </div>
 
-<div class="prose prose-slate max-w-none mt-24 border-t border-gray-300 pt-16">
+<div class="flex justify-center my-16 items-center gap-x-8">
+    <a href="https://www.buymeacoffee.com/skleinxyz" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+    <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="business" value="LX9P82UL33G8N" />
+        <input type="hidden" name="no_recurring" value="1" />
+        <input type="hidden" name="item_name" value="Si vous trouvez cet outil utile, vous pouvez m'offrir un café via PayPal." />
+        <input type="hidden" name="currency_code" value="EUR" />
+        <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faites un don avec PayPal" />
+        <img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
+    </form>
+</div>
+
+<div class="prose prose-slate max-w-none mt-16 border-t border-gray-300 pt-16">
     <h2>Ressources</h2>
 
     <p>Pour vous tenir informé des dernières réglementations, vous pouvez :</p>

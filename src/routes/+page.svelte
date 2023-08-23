@@ -226,8 +226,8 @@
         <div class="ml-3">
             <h3 class="text-sm font-medium text-yellow-800">Avertissement</h3>
             <div class="mt-2 text-sm text-yellow-700">
-                <p>Cette simulation, ces calculs sont indicatifs. Ils ne substituent pas aux décomptes rééels de <a
-                    href="https://www.unedic.org/">Unédic</a> ou <a href="https://www.pole-emploi.fr">Pôle emploi</a> ou de toute autre organisme..</p>
+                <p>Cette simulation et ces calculs sont indicatifs. Ils ne substituent pas aux décomptes réels de <a
+                    href="https://www.unedic.org/">Unédic</a> ou <a href="https://www.pole-emploi.fr">Pôle emploi</a> ou de toute autre organisme.</p>
             </div>
         </div>
     </div>
@@ -495,7 +495,7 @@
         <li><a href="https://www.unedic.org/abonnement-alertes">vous abonner aux alertes de l'Unedic</a></li>
     </ul>
 
-    <p>Si vous avez envie de prendre un peu de recul, avoir une vue d'ensemble de l'évolution règlementaires de
+    <p>Si vous avez envie de prendre un peu de recul, avoir une vue d'ensemble de l'évolution réglementaire de
         l'Assurance chômage, je vous conseille le document <a
             href="https://www.unedic.org/publications/evolutions-reglementaires-de-lassurance-chomage-1990-2022">"Evolutions
             règlementaires de l'Assurance Chômage - 1990-2022"</a> et l'article Wikipedia <a href="https://fr.wikipedia.org/wiki/Assurance_ch%C3%B4mage_en_France">"Assurance Chômage

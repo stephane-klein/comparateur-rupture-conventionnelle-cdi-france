@@ -54,7 +54,8 @@
 </script>
 
 <div class="mx-auto w-full max-w-7xl m-4">
-    <div class="flex flex-row ">
+    <p class="text-right text-xs">Date de dernière publication : 2023-08-23</p>
+    <div class="flex flex-row">
         <div class="grow flex flex-row space-x-4 font-semibold text-gray-600 my-4">
             <a
                 class="hover:text-gray-900 border-red-400 px-2 py-1 border-b-4"
@@ -72,7 +73,7 @@
             >À propos</a>
         </div>
         <a
-            class="hover:text-gray-900 px-2 my-4 py-1"
+            class="hover:text-gray-900 my-4 py-1"
             href={`?${shareUrl}`}>Partager la page avec les paramètres dans l'url</a>
     </div>
     <slot />

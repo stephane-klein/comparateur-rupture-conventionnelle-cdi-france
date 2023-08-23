@@ -435,10 +435,10 @@
         <th class="p-4">Cumul</th>
         <th
             class="p-4 border-r border-r-1 border-r-gray-500"
-        >Équivalent salaire lissé <sup>*</sup></th>
+        >Équivalent salaire lissé <sup>1</sup></th>
         <th class="p-4">Salaire net par mois</th>
-        <th class="p-4 border-r border-r-1 border-r-gray-500">Cumul</th>
-        <th class="p-4" title="Différence de revenu de la situation au chômage - les revenus du CDI">Différence</th>
+        <th class="p-4 border-r border-r-2 border-r-gray-500">Cumul</th>
+        <th class="p-4" title="Différence de revenu de la situation au chômage - les revenus du CDI">Différence du cumul <sup>2</sup></th>
     </tr>
     {#each écheancier_par_mois as mois, i }
         <tr>
@@ -464,7 +464,7 @@
                 class:border-t={i > 0}
             >{mois.salaire_du_cdi_quitte.format()}</td>
             <td
-                class="text-right font-mono px-4 py-0.5 whitespace-nowrap border-r border-r-1 border-r-gray-500"
+                class="text-right font-mono px-4 py-0.5 whitespace-nowrap border-r border-r-2 border-r-gray-500"
                 class:border-t={i > 0}
                 class:bg-green-200={mois.différence_chomage_cdi < 0}
             >{mois.cumul_salaire_du_cdi_quitté.format()}</td>
@@ -476,12 +476,14 @@
     {/each}
 </table>
 <div class="prose prose-slate max-w-none my-8">
-    <p>Explication concernant la signification du salaire lissé : par exemple, vous décidez de reprendre un emploi au
+    <p><strong>1</strong>: Explication concernant la signification du salaire lissé : par exemple, vous décidez de reprendre un emploi au
         mois de {format(écheancier_par_mois[5].date, 'MMMM yyyy', { locale: fr})}, alors le montant indiqué dans la
         cellule ({écheancier_par_mois[5].équivalent_salaire_lissé.format()}) signifie que vous aurez
         touché sur la période {format(écheancier_par_mois[0].date, 'MMMM yyyy', { locale: fr})} à
         {format(écheancier_par_mois[5].date, 'MMMM yyyy', { locale: fr})} l'équivalent d'un salaire de
         {écheancier_par_mois[5].équivalent_salaire_lissé.format()}.</p>
+    <p><strong>2</strong>: différence entre revenu chômage - revenue C.D.I. Les montants négatifs correspondent à la
+        perte de revenu en situation de chômage.</p>
 </div>
 
 <div class="prose prose-slate max-w-none mt-16 border-t border-gray-300 pt-16">

@@ -405,3 +405,20 @@
         </tr>
     {/each}
 </table>
+<div class="prose prose-slate max-w-none mt-24 border-t border-gray-300 pt-16">
+    <h2>Ressources</h2>
+
+    <p>Pour vous tenir informé des dernières réglementations, vous pouvez :</p>
+
+    <ul>
+        <li>consulter la page <a href="https://www.unedic.org/espace-presse/actualites?theme_id=197">Unedic, actualités
+            réglementaires</a></li>
+        <li><a href="https://www.unedic.org/abonnement-alertes">vous abonner aux alertes de l'Unedic</a></li>
+    </ul>
+
+    <p>Si vous avez envie de prendre un peu de recul, avoir une vue d'ensemble de l'évolution règlementaires de
+        l'Assurance chômage, je vous conseille le document <a
+            href="https://www.unedic.org/publications/evolutions-reglementaires-de-lassurance-chomage-1990-2022">"Evolutions
+            règlementaires de l'Assurance Chômage - 1990-2022"</a> et l'article Wikipedia <a href="https://fr.wikipedia.org/wiki/Assurance_ch%C3%B4mage_en_France">"Assurance Chômage
+            en France"</a></p>
+</div>

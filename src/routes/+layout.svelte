@@ -72,7 +72,7 @@
             >À propos</a>
         </div>
         <a
-            class="hover:text-gray-900 px-2 py-1"
+            class="hover:text-gray-900 px-2 my-4 py-1"
             href={`?${shareUrl}`}>Partager la page avec les paramètres dans l'url</a>
     </div>
     <slot />

@@ -58,7 +58,7 @@
 
     // https://www.unedic.org/indemnisation/vos-questions-sur-indemnisation-assurance-chomage/mon-ancien-salaire-brut-mensuel
     $: {
-        allocationJournalièreTauxPleinEnEuros = EUROWithCents(salaireJournalierDeRéférence * 0.57);
+        allocationJournalièreTauxPleinEnEuros = salaireJournalierDeRéférence.multiply(0.57);
         allocationMensuelleApproxamativeTauxPleinEnEuros = allocationJournalièreTauxPleinEnEuros.multiply(30);
     }
 
@@ -75,12 +75,88 @@
         allocationMensuelleApproxamativeTauxRéduitEnEuros = allocationJournalièreTauxRéduitEnEuros.multiply(30)
     }
 
+    // Apply "Retenues sociales sur les allocations" see https://www.unedic.org/la-reglementation/fiches-thematiques/retenues-sociales-sur-les-allocations
+    // let allocationJournalièreTauxPleinEnEurosNet;
+    // let allocationJournalièreTauxRéduitEnEurosNet;
+    let retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros;
+    let retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros;
+
+    let retenuesSocialesSurAllocationMensuelTauxPleinEnEuros;
+    let retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros;
+
+    $: {
+        retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros = EURO(0);
+        retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros = EURO(0);
+
+        retenuesSocialesSurAllocationMensuelTauxPleinEnEuros = EURO(0);
+        retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros = EURO(0);
+        // Retraite complémentaire
+        if (allocationJournalièreTauxPleinEnEuros.value > 31.59) {
+            retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros = retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros.add(
+                salaireJournalierDeRéférence.multiply(0.03)
+            );
+            retenuesSocialesSurAllocationMensuelTauxPleinEnEuros = retenuesSocialesSurAllocationMensuelTauxPleinEnEuros.add(
+                salaireJournalierDeRéférence.multiply(30).multiply(0.03)
+            );
+        }
+
+        if (allocationJournalièreTauxRéduitEnEuros.value > 31.59) {
+            retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros = retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros.add(
+                salaireJournalierDeRéférence.multiply(0.03)
+            );
+            retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros = retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros.add(
+                salaireJournalierDeRéférence.multiply(30).multiply(0.03)
+            );
+        }
+
+        // CSG
+        if (allocationJournalièreTauxPleinEnEuros.value > 59) {
+            retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros = retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros.add(
+                allocationJournalièreTauxPleinEnEuros.multiply(0.9825).multiply(0.062)
+            );
+            retenuesSocialesSurAllocationMensuelTauxPleinEnEuros = retenuesSocialesSurAllocationMensuelTauxPleinEnEuros.add(
+                allocationMensuelleApproxamativeTauxPleinEnEuros.multiply(0.9825).multiply(0.062)
+            );
+        }
+
+        if (allocationJournalièreTauxRéduitEnEuros.value > 59) {
+            retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros = retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros.add(
+                allocationJournalièreTauxRéduitEnEuros.multiply(0.9825).multiply(0.062)
+            );
+            retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros = retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros.add(
+                allocationMensuelleApproxamativeTauxRéduitEnEuros.multiply(0.9825).multiply(0.062)
+            );
+        }
+
+        // CRDS
+        if (allocationJournalièreTauxPleinEnEuros.value > 59) {
+            retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros = retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros.add(
+                allocationJournalièreTauxPleinEnEuros.multiply(0.9825).multiply(0.005)
+            );
+            retenuesSocialesSurAllocationMensuelTauxPleinEnEuros = retenuesSocialesSurAllocationMensuelTauxPleinEnEuros.add(
+                allocationMensuelleApproxamativeTauxPleinEnEuros.multiply(0.9825).multiply(0.005)
+            );
+        }
+        if (allocationJournalièreTauxRéduitEnEuros.value > 59) {
+            retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros = retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros.add(
+                allocationJournalièreTauxRéduitEnEuros.multiply(0.9825).multiply(0.005)
+            );
+            retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros = retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros.add(
+                allocationMensuelleApproxamativeTauxRéduitEnEuros.multiply(0.9825).multiply(0.005)
+            );
+        }
+    }
+
     $: $data.dernierSalaireNetParMoisEnEuros = EURO($data.dernierSalaireNetParMoisEnEurosInput);
 
     $: {
         nombre_de_jour_differe_d_indemnisation_specifique = $data.indemniteDepartNet.value / 102.4;
         if ((nombre_de_jour_differe_d_indemnisation_specifique) > 150) {
-            nombre_de_jour_differe_d_indemnisation_specifique = 150;
+            nombre_de_jour_differe_d_indemnisation_specifique = 150 + 31 // L'ajout de 31 jours est basé son mon
+                                                                         // expérience empirique du chomage, pour le
+                                                                         // moment je n'ai aucune idée de pourquoi cette différence
+                                                                         // entre ce que j'ai compris de la théorie et de la
+                                                                         // pratique
         }
         premier_jour_indemnite = add(date_premier_jour_sans_emploi, { days: nombre_de_jour_differe_d_indemnisation_specifique});
         premier_mois_versement_indemnité = set(add(premier_jour_indemnite, { months: 1}), { date: 1});
@@ -125,11 +201,11 @@
         }
 
         if (isBefore(date_du_mois_a_calculer, add(premier_jour_indemnite, { months: 6}))) {
-            return allocationMensuelleApproxamativeTauxPleinEnEuros;
+            return allocationMensuelleApproxamativeTauxPleinEnEuros.subtract(retenuesSocialesSurAllocationMensuelTauxPleinEnEuros);
         }
 
         if (isBefore(date_du_mois_a_calculer, add(premier_jour_indemnite, { months: 24}))) {
-            return allocationMensuelleApproxamativeTauxRéduitEnEuros;
+            return allocationMensuelleApproxamativeTauxRéduitEnEuros.subtract(retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros);
         }
 
         return 0;
@@ -405,14 +481,26 @@
         <li>Salaire journalier de référence : {salaireJournalierDeRéférence.format()} (<a href="https://www.unedic.org/indemnisation/vos-questions-sur-indemnisation-assurance-chomage/comment-est-calculee-mon-allocation-chomage">documentation</a>)</li>
         <li>Allocation journalière : {allocationJournalièreTauxPleinEnEuros.format()} (<a
             href="https://www.unedic.org/l-assurance-chomage-et-vous/demandeur-d-emploi-ou-salarie/mon-indemnisation/quel-sera-le-montant-de-mon-allocation-chomage">documentation</a>)</li>
+        <li>Retenues sociales sur allocation journalière :
+            {retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros.format()} (retraite complémentaire, CSG, CRDS, <a
+                href="https://www.unedic.org/la-reglementation/fiches-thematiques/retenues-sociales-sur-les-allocations">voir détail dans la documentation</a>)</li>
+        <li>Allocation journalière net : {allocationJournalièreTauxPleinEnEuros.subtract(retenuesSocialesSurAllocationJournalièreTauxPleinEnEuros).format()} (<a
+            href="https://www.unedic.org/l-assurance-chomage-et-vous/demandeur-d-emploi-ou-salarie/mon-indemnisation/quel-sera-le-montant-de-mon-allocation-chomage">documentation</a>)</li>
         <li>Allocation journalière réduite après 6 mois : {allocationJournalièreTauxRéduitEnEuros.format()}
+            (<a
+                href="https://www.unedic.org/l-assurance-chomage-et-vous/demandeur-d-emploi-ou-salarie/mon-indemnisation/quel-sera-le-montant-de-mon-allocation-chomage">documentation</a>)</li>
+        <li>Retenues sociales sur allocation journalière réduite après 6 mois :
+            {retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros.format()} (retraite complémentaire, CSG, CRDS, <a
+                href="https://www.unedic.org/la-reglementation/fiches-thematiques/retenues-sociales-sur-les-allocations">voir détail dans la documentation</a>)</li>
+        <li>Allocation journalière net réduite après 6 mois : {allocationJournalièreTauxRéduitEnEuros.subtract(retenuesSocialesSurAllocationJournalièreTauxRéduitEnEuros).format()}
             (<a
                 href="https://www.unedic.org/l-assurance-chomage-et-vous/demandeur-d-emploi-ou-salarie/mon-indemnisation/quel-sera-le-montant-de-mon-allocation-chomage">documentation</a>)</li>
         <li>Allocation d’aide au retour à l’emploi : (<a
             href="https://www.unedic.org/indemnisation/vos-questions-sur-indemnisation-assurance-chomage/mon-ancien-salaire-brut-mensuel">documentation</a>)
             <ul>
-                <li>taux plein les 6 premiers mois : {allocationMensuelleApproxamativeTauxPleinEnEuros.format()} (30 x {allocationJournalièreTauxPleinEnEuros} €/jour)</li>
-                <li>taux réduit à partir du 7ème mois : {allocationMensuelleApproxamativeTauxRéduitEnEuros.format()} (30 x {allocationJournalièreTauxRéduitEnEuros} €/jour)</li>
+                <li>taux plein net les 6 premiers mois : {allocationMensuelleApproxamativeTauxPleinEnEuros.subtract(retenuesSocialesSurAllocationMensuelTauxPleinEnEuros).format()} (30 x {allocationJournalièreTauxPleinEnEuros} €/jour)</li>
+                <li>taux réduit net à partir du 7ème mois :
+                    {allocationMensuelleApproxamativeTauxRéduitEnEuros.subtract(retenuesSocialesSurAllocationMensuelTauxRéduitEnEuros).format()} (30 x {allocationJournalièreTauxRéduitEnEuros} €/jour)</li>
             </ul>
         </li>
     </ul>

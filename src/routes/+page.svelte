@@ -395,7 +395,6 @@
     <p>Paramètres calculés :</p>
 
     <ul>
-        <li>Salaire journalier de référence : {salaireJournalierDeRéférence.format()} (<a href="https://www.unedic.org/indemnisation/vos-questions-sur-indemnisation-assurance-chomage/comment-est-calculee-mon-allocation-chomage">documentation</a>)</li>
         <li>Nombre de jours différés d'indemnisation spécifique : {nombre_de_jour_differe_d_indemnisation_specifique}
             (<a href="https://www.unedic.org/indemnisation/fiches-thematiques/differe-dindemnisation-specifique-en-cas-dindemnites-supra-legales">documentation</a>)</li>
         <li>Premier jour de versement d'indemnité : {format(premier_mois_versement_indemnité, 'dd MMM yyyy', { locale: fr})}
@@ -403,6 +402,12 @@
             {nombre_de_jour_differe_d_indemnisation_specifique} jours + début du mois suivant)</li>
         <li>Salaire annuel de référence : {salaireAnnuelDeRéférenceEnEuros.format()} (<a
             href="https://www.unedic.org/indemnisation/vos-questions-sur-indemnisation-assurance-chomage/comment-est-calculee-mon-allocation-chomage">documentation</a>)</li>
+        <li>Salaire journalier de référence : {salaireJournalierDeRéférence.format()} (<a href="https://www.unedic.org/indemnisation/vos-questions-sur-indemnisation-assurance-chomage/comment-est-calculee-mon-allocation-chomage">documentation</a>)</li>
+        <li>Allocation journalière : {allocationJournalièreTauxPleinEnEuros.format()} (<a
+            href="https://www.unedic.org/l-assurance-chomage-et-vous/demandeur-d-emploi-ou-salarie/mon-indemnisation/quel-sera-le-montant-de-mon-allocation-chomage">documentation</a>)</li>
+        <li>Allocation journalière réduite après 6 mois : {allocationJournalièreTauxRéduitEnEuros.format()}
+            (<a
+                href="https://www.unedic.org/l-assurance-chomage-et-vous/demandeur-d-emploi-ou-salarie/mon-indemnisation/quel-sera-le-montant-de-mon-allocation-chomage">documentation</a>)</li>
         <li>Allocation d’aide au retour à l’emploi : (<a
             href="https://www.unedic.org/indemnisation/vos-questions-sur-indemnisation-assurance-chomage/mon-ancien-salaire-brut-mensuel">documentation</a>)
             <ul>

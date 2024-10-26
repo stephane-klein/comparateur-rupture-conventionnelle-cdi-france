@@ -67,10 +67,10 @@
 
     // https://www.unedic.org/indemnisation/vos-questions-sur-indemnisation-assurance-chomage/mon-ancien-salaire-brut-mensuel
     $: {
-        if (allocationJournalièreTauxPleinEnEuros.value > 130.02) {
+        if (allocationJournalièreTauxPleinEnEuros.value > 131.60) {
             allocationJournalièreTauxRéduitEnEuros = allocationJournalièreTauxPleinEnEuros.multiply(0.7);
         } else {
-            allocationJournalièreTauxRéduitEnEuros = allocationJournalièreTauxPleinEnEuros;
+            allocationJournalièreTauxRéduitEnEuros = EUROWithCents(92.12);
         }
         allocationMensuelleApproxamativeTauxRéduitEnEuros = allocationJournalièreTauxRéduitEnEuros.multiply(30)
     }
